@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- <script>
+
+
+
+
+
+
+
+
+
+
+
+let savedPin = 1234;
+let balance = 5000;
+
+let enteredPin = Number(prompt("Enter your ATM PIN:"));
+
+if (enteredPin === savedPin) {
+  console.log("✅ Login Successful");
+
+  let choice = Number(prompt(`
+Select an option:
+1) Check Balance
+2) Withdraw Money
+3) Deposit Money
+4) Exit
+`));
+
+  switch (choice) {
+    case 1:
+      console.log("Your Balance is:", balance);
+      break;
+
+    case 2:
+      let withdraw = Number(prompt("Enter amount to withdraw:"));
+      if (withdraw <= balance) {
+        balance = balance - withdraw;
+        console.log("💸 Withdraw Successful!");
+        console.log("Remaining Balance:", balance);
+      } else {
+        console.log("❌ Insufficient Balance");
+      }
+      break;
+
+    case 3:
+      let deposit = Number(prompt("Enter amount to deposit:"));
+      balance = balance + deposit;
+      console.log("💰 Deposit Successful!");
+      console.log("Updated Balance:", balance);
+      break;
+
+    case 4:
+      console.log("👋 Thank You for Using ATM");
+      break;
+
+    default:
+      console.log("⚠️ Invalid Option Selected");
+  }
+
+} else {
+  console.log("❌ Wrong PIN, Access Denied");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script> -->
+
+
+    <script>
+      /* let a = Number(prompt("Enter the Number for Multiply"));
+
+      for(let i = 1 ; i <= 10 ; i++){
+        console.log(a*i);
+      } */
+
+      /*let ne = Number(prompt("Enter the Number : "));
+      let start = Number(prompt("Enter the Number where we Start: "));
+      let end = Number(prompt("Enter the Number where we End : "));
+
+      for(let i = start ; i<=end ; i++){
+        console.log(ne*i);
+      }*/
+      /* let a = Number(prompt("Enter the Number For Factorial : "))
+let factorial = 1;
+for(let i = 1 ; i<=a ; i++){
+  factorial *= i;
+}
+console.log(factorial);*/
+
+let a = Number(prompt("Enter the Number for Factorial :"));
+let factorial = 1;
+let i = 1;
+while(i<=a){
+  factorial *= i;
+  i++;
+}
+console.log(factorial);
+
+
+
+    </script>
+</body>
+</html>

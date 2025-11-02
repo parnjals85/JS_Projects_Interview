@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- “Red” → background becomes red
+
+“Blue” → becomes blue
+
+“Green” → becomes green
+
+“Reset” → back to white --->
+<!--<button id ="color">Red</button>
+<button id ="color1">Blue</button>
+<button id ="color2">Green</button>
+<button id ="color3">Reset</button>--->
+<!---<h1 id="count">0</h1>
+<button id="btn1">+</button>
+<button id="btn2">-</button>
+<button id="btn3">Reset</button>--->
+<!---Click Increase → number goes up
+
+Click Decrease → number goes down
+
+Click Reset → back to 0-->
+<!--Click the Change Background button
+
+Background color changes randomly
+
+The color’s hex code (like #a3ff11) appears below it--->
+
+<button id="button">click Me</button>
+<h1 id="color">#FFFF</h1>
+
+
+
+
+
+<script>
+        //  document.getElementById('color').onclick = ()=>{  // onlcick is a property noy a function so
+        //      document.body.style.background = 'red';
+        //  }
+        //   document.getElementById('color1').onclick = ()=>{  // onlcick is a property noy a function so
+        //      document.body.style.background = 'Blue';
+        //  }
+        //   document.getElementById('color2').onclick = ()=>{  // onlcick is a property noy a function so
+        //      document.body.style.background = 'Green';
+        //  }
+        //   document.getElementById('color3').onclick = ()=>{  // onlcick is a property noy a function so
+        //      document.body.style.background = 'White';
+        //  }
+
+
+
+
+</script>
+<script>
+    //  const check1 = document.getElementById('btn1');
+    //  const check2 = document.getElementById('btn2');
+    //  const check3 = document.getElementById('btn3');
+    //  const count = document.getElementById('count');
+    //  let value = 0;
+
+    //  check1.addEventListener('click', ()=>{
+    //     value++;
+    //     count.innerText = value;
+    //  });
+
+    //   check2.addEventListener('click',()=>{
+    //     value--;
+    //     count.innerText = value
+    //   })
+    
+    //    check3.addEventListener('click', ()=>{
+    //     value = 0;
+    //     count.innerText = value
+    //    })
+      
+</script>
+<script>
+    const btn1 = document.getElementById('button');
+    const btn2 = document.getElementById('color');
+
+    btn1.addEventListener('click', ()=>{
+        const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor= randomColor
+        btn2.innerText = randomColor;
+    })
+    
+</script>
+</body>
+</html>

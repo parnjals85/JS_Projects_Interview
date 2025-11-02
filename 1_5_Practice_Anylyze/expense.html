@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f4f6fa;
+      margin: 0;
+      padding: 20px;
+    } 
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    input, select, button {
+      flex: 1;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border-bottom: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    #total {
+      text-align: right;
+      margin-top: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      .form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Expense Tracker</h1>
+
+    <div class="form">
+      <input type="date" id="date" />
+      <select id="category">
+        <option value="">Select Category</option>
+        <option>Food & Snacks</option>
+        <option>Travel</option>
+        <option>Rent & Bills</option>
+        <option>Shopping</option>
+        <option>Subscriptions / Recharge</option>
+        <option>Entertainment</option>
+        <option>Savings / Investments</option>
+        <option>Others</option>
+      </select>
+      <input type="text" id="desc" placeholder="Description" />
+      <input type="number" id="amount" placeholder="Amount ₹" />
+      <button id="addBtn">Add</button>
+    </div>
+
+    <table id="expenseTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Amount (₹)</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2 id="total">Total: ₹0</h2>
+  </div>
+
+  <script>
+    const dateInput = document.getElementById("date");
+    const categoryInput = document.getElementById("category");
+    const descInput = document.getElementById("desc");
+    const amountInput = document.getElementById("amount");
+    const addBtn = document.getElementById("addBtn");
+    const tableBody = document.querySelector("#expenseTable tbody");
+    const totalDisplay = document.getElementById("total");
+
+    let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+    function renderExpenses() {
+      tableBody.innerHTML = "";
+      let total = 0;
+
+      expenses.forEach((exp, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${exp.date}</td>
+          <td>${exp.category}</td>
+          <td>${exp.desc}</td>
+          <td>₹${exp.amount.toFixed(2)}</td>
+          <td><button onclick="deleteExpense(${index})" style="background:#ef4444;color:white;border:none;padding:5px 8px;border-radius:6px;cursor:pointer;">❌</button></td>
+        `;
+        tableBody.appendChild(row);
+        total += exp.amount;
+      });
+
+      totalDisplay.textContent = `Total: ₹${total.toFixed(2)}`;
+      localStorage.setItem("expenses", JSON.stringify(expenses));
+    }
+
+    addBtn.addEventListener("click", () => {
+      const expense = {
+        date: dateInput.value,
+        category: categoryInput.value,
+        desc: descInput.value,
+        amount: parseFloat(amountInput.value),
+      };
+
+      if (!expense.date || !expense.category || !expense.amount) {
+        alert("⚠️ Please fill all required fields!");
+        return;
+      }
+
+      expenses.push(expense);
+      renderExpenses();
+
+      dateInput.value = "";
+      categoryInput.value = "";
+      descInput.value = "";
+      amountInput.value = "";
+    });
+
+    function deleteExpense(index) {
+      expenses.splice(index, 1);
+      renderExpenses();
+    }
+
+    renderExpenses();
+  </script>
+</body>
+</html>
