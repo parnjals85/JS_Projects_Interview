@@ -79,16 +79,69 @@
 
 // /// Create a Element in js (Dome)
 
-const div = document.createElement('div');
-console.log(div)
-div.className = 'main'
-div.id = Math.round(Math.random() * 10 +1 );
-div.style.backgroundColor = 'green';
-div.style.padding = '12px'
+// const div = document.createElement('div');
+// console.log(div)
+// div.className = 'main'
+// div.id = Math.round(Math.random() * 10 +1 );
+// div.style.backgroundColor = 'green';
+// div.style.padding = '12px'
 
-const addtext = document.createTextNode("Hello Pranjal");
-div.appendChild(addtext);
-document.body.appendChild(div);
+// const addtext = document.createTextNode("Hello Pranjal");
+// div.appendChild(addtext);
+// document.body.appendChild(div);
+
+// const add = document.getele('check');
+
+// add = () =>{
+//     document.createElement('li');
+//     li.className = "li"
+//     li.id = '8'
+//     li.style.background = 'blue'
+//     const addtext = document.createTextNode('Hello');
+//     li.appendChild(addtext);
+//     document.body.append(li);
+// }
+
+
+// function addclass(language){
+//  const li =  document.createElement('li');
+//  const checking = document.createTextNode(language);
+//  li.appendChild(checking);
+//  document.querySelector('.Parent').appendChild(li);
+// }
+// addclass("Pranjal");
+// addclass("Janvi");
+// addclass("Bhupati");
+// addclass("Check");
+
+function addnode(language){
+    const li = document.createElement('P');
+    const checking = document.createTextNode(language);
+    li.appendChild(checking);
+    document.querySelector('.Parent').appendChild(li);
+    li.style.background = "Green";
+    li.style.padding = '15px';
+    li.style.fontFamily = 'Arial';
+}
+addnode("Pranjal"); 
+addnode("Pranjal"); 
+addnode("Pranjal"); 
+
+
+// edit the text node
+const secondlang = document.querySelector('P:nth-child(3)');
+secondlang.innerHTML = "Hello";
+
+// add outerhtml
+const change = document.querySelector('P:nth-child(2)');
+change.outerHTML = "<i>Piyush</i>";
+
+// delete the node
+const change2 = document.querySelector('P:last-child');
+change2.remove();
+
+
+
 
 
 
