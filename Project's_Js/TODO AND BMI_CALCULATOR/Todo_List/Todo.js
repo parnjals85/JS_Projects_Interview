@@ -20,7 +20,7 @@ function addtask(){
     })
 
     const delbtn = document.createElement('button');   // delete button create aur 
-    delbtn.textContent = "Delete";
+    delbtn.textContent = "Delete";    // Content Delete Name in button
     delbtn.classList.add('delete-btn');     // class add 'delete-btn' in then
 
     delbtn.addEventListener('click',(e)=>{   
