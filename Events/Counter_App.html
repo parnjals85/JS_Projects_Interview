@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body style="text-align: center;">
+  </head>
+  <body style="text-align: center">
     <div id="">
-        <button class="button" id="add">0</button>
-        <button id="screen">+</button>
+      <!-- <button class="button" id="add">0</button>
+      <button id="screen">+</button> -->
+
+      <!-- <h2 id="check">0</h2>
+      <button id="boom">-</button> -->
+      <button id="reset">Reset</button>
+      <h1 id="pls">10</h1>
     </div>
     <script>
-        // let counter = 0;
-       
-       
-        //      document.getElementById('screen').addEventListener('click' , (e)=>{
-        //         e.preventDefault();
-        //         counter ++;
-        //         document.getElementById('add').textContent = counter
-        //     })
-        // const a = document.querySelectorAll('.button');
-        // a.forEach((elb)=> elb.addEventListener('click' , (e)=>{
-        //       counter ++;
-        //       elb.innerHTML = counter;
-        // }))
+      let counter = 10;
+
+      document.getElementById("screen").addEventListener("click", (e) => {
+        e.preventDefault();
+        counter++;
+        document.getElementById("add").textContent = counter;
+      });
+
+      document.getElementById("boom").addEventListener("click", (e) => {
+        e.preventDefault();
+        counter--;
+        document.getElementById("check").textContent = counter;
+      });
+
+      document.getElementById("reset").addEventListener("click", (e) => {
+        e.preventDefault();
+        document.getElementById("pls").innerHTML = 0;
+      }); 
     </script>
-</body>
+  </body>
 </html>
