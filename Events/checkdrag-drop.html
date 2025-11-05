@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drag & Drop Example</title>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      border: 2px dashed gray;
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+      line-height: 150px;
+      font-weight: bold;
+    }
+
+    .drag-item {
+      width: 100px;
+      height: 100px;
+      background-color: tomato;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      margin: auto;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="left-box">
+    <div id="drag1" class="drag-item" draggable="true">Drag Me</div>
+  </div>
+
+  <div class="box" id="right-box">Drop Here</div>
+
+  <script>
+    const dragItem = document.getElementById('drag1');
+    const rightBox = document.getElementById('right-box');
+    const leftBox = document.getElementById('left-box');
+
+    // 1️⃣ When drag starts
+    dragItem.addEventListener('dragstart', function(e) {
+      console.log('Drag Started');
+      e.dataTransfer.setData('text', e.target.id); // store element id
+    });
+
+    // 2️⃣ Allow drop over target
+    rightBox.addEventListener('dragover', function(e) {
+      e.preventDefault(); // must to allow drop
+    });
+
+    // 3️⃣ Handle drop
+    rightBox.addEventListener('drop', function(e) {
+      e.preventDefault();
+      const data = e.dataTransfer.getData('text'); // get dragged element id
+      const draggedElement = document.getElementById(data);
+      rightBox.appendChild(draggedElement);
+      console.log('Dropped in right box');
+    });
+
+    // Optional: move back to left
+    leftBox.addEventListener('dragover', (e) => e.preventDefault());
+    leftBox.addEventListener('drop', (e) => {
+      e.preventDefault();
+      const data = e.dataTransfer.getData('text');
+      leftBox.appendChild(document.getElementById(data));
+      console.log('Moved back to left box');
+    });
+  </script>
+</body>
+</html>

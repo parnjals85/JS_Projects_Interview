@@ -11,12 +11,16 @@
       <button id="screen">+</button> -->
 
       <!-- <h2 id="check">0</h2>
-      <button id="boom">-</button> -->
+      <button id="boom">-</button> --> 
       <button id="reset">Reset</button>
       <h1 id="pls">10</h1>
     </div>
     <script>
-      let counter = 10;
+       // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+      let counter = 10; 
 
       document.getElementById("screen").addEventListener("click", (e) => {
         e.preventDefault();
@@ -33,7 +37,7 @@
       document.getElementById("reset").addEventListener("click", (e) => {
         e.preventDefault();
         document.getElementById("pls").innerHTML = 0;
-      }); 
+      });
     </script>
   </body>
 </html>

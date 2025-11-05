@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Pranjal</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+   
+    //     const start = function(){
+    //         document.querySelector('#start').addEventListener('click' , ()=>{
+    //             console.log('Hello Pranjal' , Date.now());
+    //         })
+    //     }
+    //   const stopeed =  setInterval(start , 1000);
+
+    //   const stop = function(){
+    //     document.querySelector('#stop').addEventListener('click' , ()=>{
+    //         clearInterval(stopeed)
+    //     })
+    //   }
+       let intervalid ;
+       document.getElementById('start').addEventListener('click' , ()=>{
+        if(!intervalid){
+            intervalid = setInterval(()=>{
+             console.log('Hello Pranjal' , Date.now());
+            },2000)
+        }
+       })
+
+       document.getElementById('stop').addEventListener('click' , ()=>{
+        clearInterval(intervalid);
+        intervalid = null;
+        console.log('Stopped');
+       })
+        
+
+
+
+
+</script>
+</html>
