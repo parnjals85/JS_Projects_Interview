@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+      font-family: Arial;
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      width: 300px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+    }
+    img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+    </style>
+</head>
+<body>
+    <h1>🎲 Random User Generator</h1>
+    <div class="card" id="userCard">
+        <button id="btn">Click Below To Get a Randome User</button>
+    </div>
+    <script>
+
+        // Targeted The Element in Dom -
+        const btn = document.getElementById('btn');
+        const usercard = document.getElementById('userCard');
+   
+         btn.addEventListener('click' , async ()=>{    // async 
+            usercard.innerHTML = '<h3>Loading....</h3>';
+
+            try{
+                const response = await fetch('https://randomuser.me//api');
+                const data = await response.json();
+                const user = data.results[0];
+
+                usercard.innerHTML = `
+                <img src="${user.picture.large}" alt="User Picture">
+                <h2>${user.name.first} ${user.name.last}</h2>
+                <p>📧 ${user.email}</p>
+                <p>📍 ${user.location.city}, ${user.location.country}</p>
+                `
+            }catch(error){
+                usercard.innerHTML = '<h3>Error</h3>';
+                console.log(error);
+            };
+         })
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      color: #00ffcc;
+      font-family: 'Poppins', sans-serif;
+      flex-direction: column;
+    }
+    #clock {
+      font-size: 4rem;
+      letter-spacing: 3px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00ffcc;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: bold; 
+    }
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <div id="clock">00:00:00</div>
+    <button id="Stop">Stop Clock</button>
+    <script>
+        let intervalid;
+        function update(){
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2,'0');
+            const minutes = String(now.getMinutes()).padStart(2,'0');
+            const seconds = String(now.getSeconds()).padStart(2 , '0');
+            document.getElementById('clock').textContent = `${hours} : ${minutes} : ${seconds}`;
+        }
+
+        intervalid = setInterval(update , 1000);
+        update();
+
+       document.getElementById('Stop').addEventListener('click' , ()=>{
+          clearInterval(intervalid);
+          alert('Clock Stopped');
+       })
+</script>
+</body>
+</html>

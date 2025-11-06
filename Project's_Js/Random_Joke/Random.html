@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="joke">Click The Button To Get Randome Joke 😄</h2>
+    <button id="btn">Get Joke</button>
+    <script>
+        const joke = document.querySelector('#joke');
+        const btn = document.querySelector('#btn');
+
+        btn.addEventListener('click' , ()=>{
+            fetch('https://official-joke-api.appspot.com/random_joke').then((res)=> res.json()).then((data)=>{
+                joke.innerHTML = `${data.setup} 😂 <br> ${data.punchline} `;
+            }).catch(errr =>{
+                 joke.innerHTML = `Oops Failed To Load Joke 😢`;
+                 console.log(errr);
+            });
+        });
+    </script>
+</body>
+</html>
