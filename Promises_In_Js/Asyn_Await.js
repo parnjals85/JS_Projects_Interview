@@ -8,7 +8,6 @@ const  mypromise = new Promise((resolve , reject)=>{
           }
       }, 3000);
 })
-
 async function  check() {
      try{
         const resopnese = await mypromise;

@@ -1,5 +1,22 @@
+// function vowels(str){
+//     let count = 0;
+//     const vowels = 'aeiouAEIOU';
+
+//     for(let i = 0 ; i< str.length ; i++){
+//         if(vowels.includes(str[i]))
+//             count ++;
+//     }
+//     return count;
+// }
+
+// console.log(vowels('Pranjal'))
+// console.log(vowels('Chinmaya'))
+// console.log(vowels('Sudeeep'))
+// console.log(vowels('Prakta'));
+
+
 function vowels(str){
-    let count = 0;
+    let count =0;
     const vowels = 'aeiouAEIOU';
 
     for(let i = 0 ; i< str.length ; i++){
@@ -9,7 +26,4 @@ function vowels(str){
     return count;
 }
 
-console.log(vowels('Pranjal'))
-console.log(vowels('Chinmaya'))
-console.log(vowels('Sudeeep'))
-console.log(vowels('Prakta'));
+console.log(vowels('Pranjal'));
