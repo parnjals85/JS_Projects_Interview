@@ -8,7 +8,7 @@ let c = 123n;
 console.log(typeof c);
 
 let d = Symbol("id");
-console.log(typeof d);
+console.log(typeof d);  //AIzaSyAZ8r6bAnoNWqLXOIuHbtikCbyl6wtp4wo
 
 let e = [1, 2, 3];
 console.log(typeof e);
